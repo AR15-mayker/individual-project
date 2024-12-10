@@ -11,12 +11,27 @@ dp = Dispatcher()
 async def start_cmd(message: types.Message):
     await message.answer("это команда старт!")
 
+
+@dp.message(lambda message: message.text.lower() == "привет")
+async def greet(message: types.Message):
+    await message.answer("Привет! Как я могу помочь?")
+
+
+@dp.message(lambda message: message.text.lower() == "как дела?")
+async def how_are_you(message: types.Message):
+    await message.answer("У меня всё хорошо, спасибо! А у тебя?")
+
+
+@dp.message(lambda message: message.text.lower() == "пока")
+async def goodbye(message: types.Message):
+    await message.answer("До свидания! Возвращайся, если понадоблюсь!")
+
+
 @dp.message()
 async def echo(message: types.Message):
     await message.answer(message.text)
 
 
-    
 async def main():
     await dp.start_polling(bot)
 
