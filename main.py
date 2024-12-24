@@ -3,6 +3,7 @@ import asyncio
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import CommandStart
 from dotenv import find_dotenv, load_dotenv
+from loguru import logger 
 
 load_dotenv(find_dotenv())
 TOKEN = os.getenv("TOKEN")
@@ -43,8 +44,7 @@ async def developer(message: types.Message):
 
 @dp.message()
 async def convers(message: types.Message):
-    if message.text == "Ты врешь?":
-     await message.answer("Я не могу врать")
+    if 
 
 
 async def main():
