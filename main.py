@@ -31,14 +31,20 @@ async def goodbye(message: types.Message):
     await message.answer("До свидания! Возвращайся, если понадоблюсь!")
 
 
-@dp.message(lambda message: message.text.lower() == "Разработчик")
-async def greet(message: types.Message):
-    await message.answer("разрабочик этого бота являеться : @AR_15_RUS ")
+@dp.message(lambda message: message.text.lower() == "разраб")
+async def developer(message: types.Message):
+    await message.answer("разработчик этого бота являеться : @AR_15_RUS ")
+
+
+# @dp.message()
+#async def echo(message: types.Message):
+#    await message.answer(message.text)
 
 
 @dp.message()
-async def echo(message: types.Message):
-    await message.answer(message.text)
+async def convers(message: types.Message):
+    if message.text == "Ты врешь?":
+     await message.answer("Я не могу врать")
 
 
 async def main():
