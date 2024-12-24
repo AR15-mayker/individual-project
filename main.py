@@ -1,8 +1,12 @@
+import os
 import asyncio
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import CommandStart
+from dotenv import find_dotenv, load_dotenv
 
-TOKEN = '7661962661:AAH8zaO2qq0QZWwcEcNxyyydbMBfGOMLxNg'
+load_dotenv(find_dotenv())
+TOKEN = os.getenv("TOKEN")
+
 bot = Bot(TOKEN)
 dp = Dispatcher()
 
@@ -25,6 +29,11 @@ async def how_are_you(message: types.Message):
 @dp.message(lambda message: message.text.lower() == "пока")
 async def goodbye(message: types.Message):
     await message.answer("До свидания! Возвращайся, если понадоблюсь!")
+
+
+@dp.message(lambda message: message.text.lower() == "Разработчик")
+async def greet(message: types.Message):
+    await message.answer("разрабочик этого бота являеться : @AR_15_RUS ")
 
 
 @dp.message()
