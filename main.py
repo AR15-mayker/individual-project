@@ -12,6 +12,15 @@ bot = Bot(TOKEN)
 dp = Dispatcher()
 
 
+def start(message):
+
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    btn1 = types.KeyboardButton("🇷🇺 Русский")
+    btn2 = types.KeyboardButton('🇬🇧 English')
+    markup.add(btn1, btn2)
+    bot.send_message(message.from_user.id, "🇷🇺 Выберите язык / 🇬🇧 Choose your language", reply_markup=markup)
+
+
 @dp.message(CommandStart())
 async def start_cmd(message: types.Message):
     await message.answer("это команда старт!")
@@ -37,17 +46,6 @@ async def developer(message: types.Message):
     await message.answer("разработчик этого бота являеться : @AR_15_RUS ")
 
 
-# @dp.message()
-#async def echo(message: types.Message):
-#    await message.answer(message.text)
-
-
 @dp.message()
-async def convers(message: types.Message):
-    if 
-
-
-async def main():
-    await dp.start_polling(bot)
-
-asyncio.run(main())
+async def echo(message: types.Message):
+    await message.answer(message.text)
